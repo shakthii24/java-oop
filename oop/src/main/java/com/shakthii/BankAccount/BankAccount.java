@@ -1,11 +1,11 @@
 package com.shakthii.BankAccount;
 
-public class BankAccount {
+class Account {
     private final String accountNumber;
     private double balance;
     private final String owner;
 
-    public BankAccount(String accountNumber, String owner, double initialBalance){
+    public Account(String accountNumber, String owner, double initialBalance){
         if(accountNumber == null || accountNumber.isBlank() || accountNumber.length() != 16){
             throw new IllegalArgumentException("Please provide a proper account number");
         }
@@ -35,5 +35,15 @@ public class BankAccount {
 
     public void getBalance(){
         System.out.println("Account balance: " + balance);
+    }
+}
+
+public class BankAccount {
+    public static void main(String[] args){
+
+        Account john = new Account("1234567890123456","John Wick",500.00);
+        john.getBalance();
+        john.withdraw(500.00);
+        john.deposit(5000.00);
     }
 }
